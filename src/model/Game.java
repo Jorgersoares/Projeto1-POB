@@ -45,6 +45,8 @@ public class Game {
 	
 	@Override
 	public String toString() {
-		return title;
+		return String.format(
+				"titulo:%s genero:%s preco:%f",
+				getTitle(),getGenres(),getPrice());
 	}
 }

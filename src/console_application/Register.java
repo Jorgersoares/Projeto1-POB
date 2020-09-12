@@ -57,25 +57,14 @@ public class Register {
 		new Register(new Genre("Simulation"));
 		
 		// Adding genres
-		String[] arrayA = {"Action", "Adventure", "RPG", "Indie"};
-		String[] arrayB = {"Action", "Shooter"};
-		String[] arrayC = {"Action", "Shooter", "RPG"};
-		String[] arrayD = {"Action", "Adventure", "RPG"};
-		String[] arrayE = {"Racing", "Sports"};
-		String[] arrayF = {"Action", "Shooter", "Casual"};
-		String[] arrayG = {"Action", "Adventure", "Shooter"};
+		String[] arrayA = {"Action", "Adventure"};
+		String[] arrayB = {"Action"};
+		String[] arrayC = {"Action"};
 		
 		// Adding games
 		new Register(new Game("CrossCode", 35.25), arrayA);
 		new Register(new Game("GTA V", 69.99), arrayB);
 		new Register(new Game("Borderlands 3", 119.99), arrayC);
-		new Register(new Game("Rainbow Six Siege", 59.99), arrayB);		
-		new Register(new Game("Monster Hunter World", 69.99), arrayD);
-		new Register(new Game("Final Fantasy XV", 125.00), arrayD);
-		new Register(new Game("Rocket League", 36.99), arrayE);
-		new Register(new Game("The Surge", 54.99), arrayB);
-		new Register(new Game("Garry's Mod", 19.99), arrayF);
-		new Register(new Game("Bioshock Infinite", 89.99), arrayG);
 		
 		// Adding users
 		new Register("Adilson","adelso@gmail.com", "123456");

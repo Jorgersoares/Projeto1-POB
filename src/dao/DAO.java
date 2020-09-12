@@ -1,5 +1,6 @@
 package dao;
 
+import java.io.File;
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
 
@@ -11,7 +12,6 @@ import com.db4o.config.EmbeddedConfiguration;
 import com.db4o.query.Query;
 
 import model.Game;
-import model.User;
 
 
 public abstract class DAO<T> implements DAOInterface<T> {
@@ -23,20 +23,10 @@ public abstract class DAO<T> implements DAOInterface<T> {
 		}
 	}
 	public static void abrirBancoLocal(){		
-		//Backup.criar("banco.db4o");		//criar uma copia do banco
-		//new File("banco.db4o").delete();  //apagar o banco
 		EmbeddedConfiguration config =  Db4oEmbedded.newConfiguration(); 
-		config.common().messageLevel(0);  // 0,1,2,3...
-		
-		config.common().objectClass(User.class).updateDepth(2);
-		config.common().objectClass(Game.class).cascadeOnUpdate(true);
-		config.common().objectClass(Game.class).cascadeOnDelete(true);
+		config.common().messageLevel(0);
 		config.common().objectClass(Game.class).cascadeOnActivate(true);
-
-		// 		indices
-		// config.common().objectClass(Pessoa.class).objectField("nome").indexed(true);
-		// config.common().objectClass(Telefone.class).objectField("numero").indexed(true);
-		
+		config.common().objectClass(Game.class).cascadeOnUpdate(true);
 		manager = Db4oEmbedded.openFile(config, "banco.db4o");
 	}
 	

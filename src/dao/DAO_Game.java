@@ -18,5 +18,12 @@ public class DAO_Game extends DAO<Game>{
 		
 		return resultados.get(0);
 	}
+	
+	public List<Game> priceAboveFifty() {
+		Query q = manager.query();
+		q.constrain(Game.class);
+		q.descend("price").constrain(50).greater();
+		return q.execute();
+	}
 }
 

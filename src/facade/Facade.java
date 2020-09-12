@@ -112,6 +112,19 @@ public class Facade {
 		DAO.commit();
 	}
 	
+	public static void deleteGame(String name) throws Exception{
+		DAO.begin();
+		
+		Game game = daoGame.read(name);
+		
+		if(game == null) {
+			throw new Exception(String.format("This game does not exist"));
+		}
+		
+		daoGame.delete(game);
+		DAO.commit();
+	}
+	
 	public static void updateGenre(String name) throws Exception {
 		// TODO
 	}
@@ -187,5 +200,9 @@ public class Facade {
 	public static String formatMoney(double amount) {
 		DecimalFormat df = new DecimalFormat("0.##");
 		return df.format(amount);
+	}
+	
+	public static List<Game> pricesAboveFifty(){
+		return daoGame.priceAboveFifty();
 	}
 }
